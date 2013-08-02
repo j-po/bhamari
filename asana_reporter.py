@@ -2,13 +2,14 @@ import json
 import requests
 import time
 
-asana_api_key = '' #SET THIS
+user_info=json.load(open('user_info.json', 'r'))
+asana_api_key = user_info['asana_api_key']
 asana_url = 'https://app.asana.com/api/1.0/'
-tag_id = '' #SET THIS 
+tag_id = user_info['tag_id'] 
 tag_url = 'tags/'  + tag_id + '/tasks'
-beeminder_username= '' #SET THIS 
-goal_name = '' #SET THIS 
-beeminder_auth_token= '' #SET THIS 
+beeminder_username= user_info['beeminder_username'] 
+goal_name = user_info['goal_name'] 
+beeminder_auth_token= user_info['beeminder_auth_token'] 
 beeminder_url = 'https://www.beeminder.com/api/v1/users/' + beeminder_username + '/goals/' + goal_name
 current_time=time.time()
 
